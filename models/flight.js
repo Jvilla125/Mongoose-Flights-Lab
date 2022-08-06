@@ -6,11 +6,14 @@ const flightSchema = new mongoose.Schema({
     flightNo: Number,
     departs: {
         type: Date,
-        default: function(){
-            let newYear = new Date();
-            return newYear.setFullYear(newYear.getFullYear() + 1);
+        departs: {
+            type: Date, 
+            default: function(){
+            const nextYear = new Date().getFullYear(getFullYear()+1);
+            return nextYear;
+        },
     }
-    }
+}
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

@@ -13,15 +13,18 @@ function index(req,res){
 }
 
 function newFlight(req,res){
-    res.render('flights/new');
-}
+    res.render('flights/new', {
+       departs
+    });
+  }
+
 
 function create(req, res){
-    
     Flight.create(req.body, function(err, flightCreated){
         if(err){
             return res.render('flights/new.ejs')
         }
+
         console.log(flightCreated, "<- flight created");
         res.redirect('/');
     })
