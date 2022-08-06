@@ -1,6 +1,5 @@
-var express = require('express');
-const flights = require('../controllers/flights');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const flightsController = require('../controllers/flights');
 
 /* GET users listing. */
