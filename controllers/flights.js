@@ -1,3 +1,4 @@
+
 const Flight = require("../models/flight");
 
 function index(req,res){
@@ -12,12 +13,15 @@ function index(req,res){
     });
 }
 
-function newFlight(req,res){
-    res.render('flights/new', {
-       departs
-    });
-  }
+// Need to figure out how to render the departs: default function()
+// from models/flight.js object in the function below
+ //  {
+    //    departs
+    // });
 
+function newFlight(req,res){
+    res.render('flights/new')
+  }
 
 function create(req, res){
     Flight.create(req.body, function(err, flightCreated){
