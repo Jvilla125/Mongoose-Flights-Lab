@@ -1,16 +1,44 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+} */
+body{
+  padding: 0;
+  margin: 0;
+  background: white
 }
 
-a {
-  color: #00B7FF;
-}
 table {
   font-size: 20px;
 }
-h1{
+header{
+  background: rgb(173, 169, 169)
+}
+.index{
+  padding: 5px;
   text-align: center;
+  margin: auto; 
+}
+.airplane {
+  width: 125px;
+  height: 125px;
+}
+.index-options{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Flights{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  font-size: 20px
 }
 table thead th {
   padding: 5px;
@@ -22,3 +50,10 @@ table td {
   text-align: center;
 }
 
+footer{
+  padding: 30px;
+}
+
+#show-page{
+  font-size: 20px;
+}
