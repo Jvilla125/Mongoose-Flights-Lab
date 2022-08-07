@@ -7,6 +7,12 @@ function create(req, res){
         // 'allFlights' is a parameter that lets us use the object 
         // so we use allFlights.destination to add to the empty array
         allFlights.destinations.push(req.body);
+
+        // have the array of allFlights.destination set to a variable
+        const destinationArray = allFlights.destinations;
+
+        // sort the arrays from ascending order
+        const sortDestinations = destinationArray.sort((a,b) => (a.arrival) - (b.arrival));
         // we also need to save that information into the empty array 
         // then we redirect the user to the same page with a destination added
         allFlights.save(function(err){
