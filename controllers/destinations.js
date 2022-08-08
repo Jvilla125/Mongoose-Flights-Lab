@@ -10,7 +10,9 @@ function create(req, res){
 
         // have the array of allFlights.destination set to a variable
         const destinationArray = allFlights.destinations;
-
+        console.log(destinationArray, "<--- this right here");
+        console.log(req.params.id, "<req.params.id");
+        console.log(req.body.id, "<-- req.body");
         // sort the arrays from ascending order
         const sortDestinations = destinationArray.sort((a,b) => (a.arrival) - (b.arrival));
         // we also need to save that information into the empty array 
@@ -21,6 +23,16 @@ function create(req, res){
     })
 }
 
+// function deleteDestination(req,res){
+//     Flight.findById(req.params.id, function(err, allFlights){
+//         console.log(allFlights.destinations, "<-- desintation")
+        
+//     })
+//     res.redirect(`/flights/${req.params.id}`);
+        
+// }
+
 module.exports = {
     create
+    // delete: deleteDestination
 };

@@ -23,7 +23,8 @@ const flightSchema = new mongoose.Schema({
             }
         }
     },
-    destinations: [destinationSchema] // This creates an array for the destinations 
+    destinations: [destinationSchema], // This creates an array for the destinations 
+    ticket: {type: mongoose.Schema.Types.ObjectId, ref: 'Ticket'}
 });
 
 module.exports = mongoose.model('Flight', flightSchema);
