@@ -13,12 +13,6 @@ function index(req,res){
     });
 }
 
-// Need to figure out how to render the departs: default function()
-// from models/flight.js object in the function below
- //  {
-    //    departs
-    // });
-
 function newFlight(req,res){
     const newFlight = new Flight();
     const dt = newFlight.departs;
