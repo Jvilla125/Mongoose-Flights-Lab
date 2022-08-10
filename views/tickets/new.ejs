@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>Document</title>
 </head>
+<header><h1 class="index">Welcome to Express Airlines</h1>
+    <div class="index"><img class="airplane"src="https://thumbs.dreamstime.com/b/airplane-plane-takeoff-passenger-plane-airlines-airport-travel-transport-business-economy-class-symbol-icon-vector-68633735.jpg"></div>
+  </header><br>
 <body>
-    <h1>Hello</h1>
-    <form id="create-new-ticket" action="/tickets"  method="POST">
-        <h2><center>Ticket Information</center></h2>
-        <div><b>Seat:</b></div><br>
-        
 
+    <center><form id="create-new-ticket" action="/flights/<%=flights%>/tickets"   method="POST">
+        <h2>Ticket Information</h2>
+        <label>Seat:
+            <input type="text" name="seat" required pattern="[A-F][1-9]\d?">
+        </label><br><br>
         <label>Price: 
             <input type="number" name="price" min="0" required>
-        </label>
+        </label><br><br>
 
-        <div><b>Flight:</b></div><br>
-    <button type="submit">Click to Create Ticket</button>
-    </form>
+    <button type="submit" >Click to Create Ticket</button>
+    </form></center>
 </body>
 </html>

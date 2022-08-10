@@ -7,7 +7,8 @@ function index(req,res){
             res.send("You have an error");
         }
         res.render('flights/index.ejs',{
-            flights: allFlights
+            flights: allFlights,
+            
         });
     });
 }
@@ -19,8 +20,14 @@ function index(req,res){
     // });
 
 function newFlight(req,res){
-    res.render('flights/new')
-  }
+    const newFlight = new Flight();
+    const dt = newFlight.departs;
+    const departsDate = dt.toISOString().slice(0, 16);
+    res.render('flights/new', {
+        departsDate,
+  })
+}
+
 
 function create(req, res){
     Flight.create(req.body, function(err, flightCreated){
@@ -34,7 +41,9 @@ function create(req, res){
 
 function show(req, res){
     Flight.findById(req.params.id, function(err, allFlights){
-        Ticket.find({allFlights: allFlights._id}, function(err, tickets){
+        console.log(allFlights.id, "<-- all flights")
+        Ticket.find({flight: allFlights.id}, function(err, tickets){
+            console.log(tickets, "<- tickets")
             res.render('flights/show', {
             title: 'Flight Details', 
             flight: allFlights,
@@ -43,6 +52,7 @@ function show(req, res){
         })
     })
 }
+
 module.exports = {
     index,
     new: newFlight,

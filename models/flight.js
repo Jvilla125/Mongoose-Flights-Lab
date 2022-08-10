@@ -14,17 +14,15 @@ const flightSchema = new mongoose.Schema({
     airport: String,
     flightNo: Number,
     departs: {
-        type: Date,
-        departs: {
             type: Date, 
             default: function(){
-            const nextYear = new Date().getFullYear(getFullYear()+1);
-            return nextYear;
+            const date = new Date()
+            date.setFullYear(date.getFullYear() + 1);
+            return date;
             }
-        }
     },
-    destinations: [destinationSchema], // This creates an array for the destinations 
-    ticket: {type: mongoose.Schema.Types.ObjectId, ref: 'Ticket'}
+    destinations: [destinationSchema] // This creates an array for the destinations 
+
 });
 
 module.exports = mongoose.model('Flight', flightSchema);

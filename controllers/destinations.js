@@ -23,16 +23,17 @@ function create(req, res){
     })
 }
 
-// function deleteDestination(req,res){
-//     Flight.findById(req.params.id, function(err, allFlights){
-//         console.log(allFlights.destinations, "<-- desintation")
-        
-//     })
-//     res.redirect(`/flights/${req.params.id}`);
-        
-// }
+function deleteDestination(req,res){
+    Flight.findById(req.params.id, function(err, allFlights){
+        allFlights.destinations.id(req.params.desId).remove()
+
+    allFlights.save(function(err){
+        res.redirect(`/flights/${req.params.id}`);
+    })
+})
+}
 
 module.exports = {
-    create
-    // delete: deleteDestination
+    create,
+    delete: deleteDestination
 };

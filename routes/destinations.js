@@ -3,6 +3,6 @@ const router = express.Router();
 const destinationsController = require('../controllers/destinations');
 
 router.post('/flights/:id/destinations', destinationsController.create);
-// router.post('/flights/:id/destinations/:id', destinationsController.delete);
+router.delete('/flights/:id/destinations/:desId', destinationsController.delete);
 
 module.exports = router;
